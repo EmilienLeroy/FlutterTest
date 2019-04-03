@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:test_flutter/screens/random.dart';
 import 'package:test_flutter/screens/about.dart';
 import 'package:test_flutter/screens/home.dart';
+import 'package:test_flutter/screens/chat.dart';
 
 //main class
 class App extends StatelessWidget {
@@ -19,6 +20,7 @@ class App extends StatelessWidget {
         // define the routes
           AboutScreen.routeName: (BuildContext context) => new AboutScreen(),
           RandomWords.routeName: (BuildContext context) => new RandomWords(),
+          ChatScreen.routeName: (BuildContext context) => new ChatScreen()
         },
     );
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:test_flutter/screens/about.dart';
 import 'package:test_flutter/screens/random.dart';
+import 'package:test_flutter/screens/chat.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -29,8 +30,9 @@ class HomeScreenState extends State<HomeScreen> {
     var myNavChildren = [
       headerChild,
       getNavItem(Icons.home, "Home", "/"),
-      getNavItem(Icons.settings, "About", AboutScreen.routeName),
       getNavItem(Icons.account_box, "Random", RandomWords.routeName),
+      getNavItem(Icons.comment, "Chat", ChatScreen.routeName),
+      getNavItem(Icons.settings, "About", AboutScreen.routeName),
     ];
 
     ListView listView = new ListView(children: myNavChildren);
