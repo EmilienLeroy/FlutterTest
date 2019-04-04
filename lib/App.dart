@@ -13,7 +13,7 @@ class App extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Test',
         theme: new ThemeData(
-          primaryColor: Colors.lightGreen,
+          primaryColor: Colors.black,
         ),
         home: new HomeScreen(),
         routes: <String, WidgetBuilder>{

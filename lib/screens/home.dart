@@ -46,7 +46,7 @@ class HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("Navigation Drawer Example"),
+        title: new Text("Testing Flutter"),
       ),
       body: new Container(
           child: new Center(
