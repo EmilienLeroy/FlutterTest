@@ -11,10 +11,10 @@ class HomeScreen extends StatefulWidget {
 
 class HomeScreenState extends State<HomeScreen> {
   final List<Pokemon> pokemons = [
-    new Pokemon("Pikachu", "Electrique", new AssetImage('assets/pikachu.png')),
-    new Pokemon("Salameche", "Feu", new AssetImage('assets/salameche.png')),
-    new Pokemon("Bulbizarre", "Plante", new AssetImage('assets/bulbizarre.png')),
-    new Pokemon("Carapuce", "Eau", new AssetImage('assets/carapuce.png'))
+    new Pokemon("Pikachu", "Electrique", new AssetImage('assets/pikachu.png'),'pikachu.wav'),
+    new Pokemon("Salameche", "Feu", new AssetImage('assets/salameche.png'),'salameche.mp3'),
+    new Pokemon("Bulbizarre", "Plante", new AssetImage('assets/bulbizarre.png'),'bulbizarre.mp3'),
+    new Pokemon("Carapuce", "Eau", new AssetImage('assets/carapuce.png'),'carapuce.mp3')
   ];
 
   Drawer getNavDrawer(BuildContext context) {
@@ -84,7 +84,10 @@ class HomeScreenState extends State<HomeScreen> {
                           ]
                         ),
                       ),
-                    )
+                    ),
+                    onTap: (){
+                        pokemon.sound();
+                    },
                   );
                 }
             )
