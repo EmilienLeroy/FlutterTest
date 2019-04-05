@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:test_flutter/screens/about.dart';
 import 'package:test_flutter/screens/random.dart';
 import 'package:test_flutter/screens/chat.dart';
+import 'package:test_flutter/models/Pokemon.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -9,8 +10,16 @@ class HomeScreen extends StatefulWidget {
 }
 
 class HomeScreenState extends State<HomeScreen> {
+  final List<Pokemon> pokemons = [
+    new Pokemon("Pikachu", "Electrique"),
+    new Pokemon("Sallameche", "Feu"),
+    new Pokemon("Bulbizarre", "Plante"),
+    new Pokemon("Carapuce", "Eau")
+  ];
+
   Drawer getNavDrawer(BuildContext context) {
     var headerChild = new DrawerHeader(child: new Text("Header"));
+
 
     ListTile getNavItem(var icon, String s, String routeName) {
       return new ListTile(
@@ -48,12 +57,30 @@ class HomeScreenState extends State<HomeScreen> {
       appBar: new AppBar(
         title: new Text("Testing Flutter"),
       ),
+        drawer: getNavDrawer(context),
       body: new Container(
           child: new Center(
-            child: new Text("Home Screen"),
-          )),
+            child: new GridView.builder(
+                itemCount: pokemons.length,
+                gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+                itemBuilder:  (BuildContext context, int index){
+                  final pokemon = pokemons[index];
+
+                  return new GestureDetector(
+                      child: new Card(
+                      elevation: 5.0,
+                      child: new Container(
+                        alignment: Alignment.center,
+                        child: new Text(pokemon.name),
+                      ),
+                    )
+                  );
+                }
+            )
+          ),
+      )
       // Set the nav drawer
-      drawer: getNavDrawer(context),
+
     );
   }
 }
