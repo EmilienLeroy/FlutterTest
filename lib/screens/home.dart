@@ -11,10 +11,10 @@ class HomeScreen extends StatefulWidget {
 
 class HomeScreenState extends State<HomeScreen> {
   final List<Pokemon> pokemons = [
-    new Pokemon("Pikachu", "Electrique"),
-    new Pokemon("Sallameche", "Feu"),
-    new Pokemon("Bulbizarre", "Plante"),
-    new Pokemon("Carapuce", "Eau")
+    new Pokemon("Pikachu", "Electrique", new AssetImage('assets/pikachu.png')),
+    new Pokemon("Salameche", "Feu", new AssetImage('assets/salameche.png')),
+    new Pokemon("Bulbizarre", "Plante", new AssetImage('assets/bulbizarre.png')),
+    new Pokemon("Carapuce", "Eau", new AssetImage('assets/carapuce.png'))
   ];
 
   Drawer getNavDrawer(BuildContext context) {
@@ -69,9 +69,20 @@ class HomeScreenState extends State<HomeScreen> {
                   return new GestureDetector(
                       child: new Card(
                       elevation: 5.0,
+                      semanticContainer: true,
                       child: new Container(
+                        decoration: new BoxDecoration(
+                          image: new DecorationImage(image: pokemon.img,fit: BoxFit.cover),
+                          borderRadius: new BorderRadius.all(new Radius.circular(5)),
+                        ),
                         alignment: Alignment.center,
-                        child: new Text(pokemon.name),
+                        child: new Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(pokemon.name),
+                            Text(pokemon.type)
+                          ]
+                        ),
                       ),
                     )
                   );
