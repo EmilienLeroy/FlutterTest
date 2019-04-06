@@ -12,8 +12,7 @@ class HomeScreen extends StatefulWidget {
   HomeScreenState createState() => new HomeScreenState();
 }
 
-class HomeScreenState extends State<HomeScreen> {
-
+class HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
   Drawer getNavDrawer(BuildContext context) {
     var headerChild = new DrawerHeader(child: new Text("Header"));
@@ -52,6 +51,21 @@ class HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      appBar: new AppBar(
+        elevation: 0,
+        title: Text('POKEMON',style: TextStyle(
+            color: Colors.white,
+            fontSize: 30,
+            fontWeight: FontWeight.bold,
+            shadows:
+              [
+                new Shadow(color: Colors.black, offset: new Offset(1, 2), blurRadius: 5)
+              ]
+        )),
+        centerTitle: true,
+        backgroundColor: Colors.orangeAccent,
+        automaticallyImplyLeading: false
+      ),
       drawer: getNavDrawer(context),
       backgroundColor: Colors.deepOrangeAccent,
       body:  CustomPaint(

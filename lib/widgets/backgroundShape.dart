@@ -6,7 +6,7 @@ class BackgroundShape extends CustomPainter {
     final paint = Paint();
 
     // set the paint color to be white
-    paint.color = Colors.orange;
+    paint.color = Colors.white;
 
     // Create a rectangle with size and width same as the canvas
     var rect = Rect.fromLTWH(0, 0, size.width, size.height);
@@ -14,11 +14,11 @@ class BackgroundShape extends CustomPainter {
     // draw the rectangle using the paint
     canvas.drawRect(rect, paint);
 
-    paint.color = Colors.white;
+    paint.color = Colors.orangeAccent;
 
     // create a path
     var path = Path();
-    double height = 100;
+    double height = 75;
     path.lineTo(0.0, height);
 
     var firstControlPoint = Offset(size.width / 4, height);

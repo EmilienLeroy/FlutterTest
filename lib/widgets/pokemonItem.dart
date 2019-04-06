@@ -27,14 +27,12 @@ class PokemonItem extends StatelessWidget
             image: new DecorationImage(image: pokemon.img,fit: BoxFit.cover),
             borderRadius: new BorderRadius.all(new Radius.circular(5)),
             gradient: LinearGradient(
-              begin: Alignment.bottomLeft,
-              end: Alignment.topRight,
-              stops: [0.1, 0.5, 0.7, 0.9],
+              begin: Alignment.bottomRight,
+              end: Alignment.topLeft,
+              stops: [0.1, 0.9],
               colors: [
-              Color(0xff845ec2),
-              Color(0xffe65faa),
-              Color(0xffff8080),
-              Color(0xfff9f871),
+              Color(0xffff9800),
+              Color(0xffffffff),
             ],
           ),
         ),
@@ -52,13 +50,13 @@ class PokemonItem extends StatelessWidget
         width: double.infinity,
         decoration: new BoxDecoration(
           color: Colors.black45,
-          borderRadius: new BorderRadius.all(new Radius.circular(5)),
+          borderRadius: new BorderRadius.only(bottomLeft: new Radius.circular(5), bottomRight: new Radius.circular(5)),
         ),
         child: new Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text('Nom: ${pokemon.name}',style: TextStyle(color: Colors.white)),
-            Text('Type: ${pokemon.type}',style: TextStyle(color: Colors.white)),
+            Text('${pokemon.name}',style: TextStyle(color: Colors.white)),
+            Text('${pokemon.type}',style: TextStyle(color: Colors.white70)),
           ],
         )
         ,
@@ -67,8 +65,9 @@ class PokemonItem extends StatelessWidget
 
     //Return a grid tile with the content and the footer
     return GridTile(
-      child: content,
-      footer: footer,
+        child: content,
+        footer: footer,
     );
+
   }
 }
