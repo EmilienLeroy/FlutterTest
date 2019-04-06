@@ -5,6 +5,7 @@ import 'package:test_flutter/screens/chat.dart';
 import 'package:test_flutter/models/Pokemon.dart';
 import 'package:test_flutter/data/pokemons.dart';
 import 'package:test_flutter/widgets/pokemonItem.dart';
+import 'package:test_flutter/widgets/backgroundShape.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -52,22 +53,26 @@ class HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return new Scaffold(
       drawer: getNavDrawer(context),
-      body: new Container(
+      backgroundColor: Colors.deepOrangeAccent,
+      body:  CustomPaint(
+      painter: BackgroundShape(),
+        child: new Container(
+          padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
           child: new Center(
             child: new GridView.builder(
-                itemCount: pokemons.length,
-                gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-                itemBuilder:  (BuildContext context, int index){
+              itemCount: pokemons.length,
+              gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+              itemBuilder:  (BuildContext context, int index){
 
-                  final pokemon = pokemons[index];
-                  return new PokemonItem(pokemon);
+                final pokemon = pokemons[index];
+                return new PokemonItem(pokemon);
 
-                }
+              }
             )
           ),
-      )
-      // Set the nav drawer
+        ),
 
+      )
     );
   }
 }
